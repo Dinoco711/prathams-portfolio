@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Consultation App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ffcc00;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 15px;
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        ul li:hover {
+            background: #2e2e2e;
+        }
+        ul li::before {
+            content: "\2022";
+            color: #ffcc00;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        .sub-section {
+            margin-left: 20px;
+        }
+        .sub-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .sub-section ul li::before {
+            content: "\25B6";
+            color: #ffcc00;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ffcc00;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: #E0E0E0;
+            transition: background 0.3s ease;
+        }
+        th {
+            background-color: #cca300; /* Softer gold tone */
+            color: #121212;
+        }
+        td:hover {
+            background-color: #2e2e2e;
+            cursor: pointer;
+        }
+        table {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table-container {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: background 0.3s ease;
+        }
+        .table-container:hover {
+            background: #2e2e2e;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #B0BEC5;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1rem;
+            }
+            table, th, td {
+                padding: 8px;
+            }
+            ul li {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            ul li {
+                padding: 10px ;
+            }
+            .section-title {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctor Consultation App</h1>
+    
+    <h2>User's Side</h2>
+    <p>This section will contain the topics of what contents are there in the user’s side.</p>
+    <ul>
+        <li>
+            <span class="section-title">Page 1: Home</span>
+            <div class="sub-section">
+                <ul>
+                    <li>
+                        <span>Profile</span>
+                        <ul>
+                            <li>Profile Settings</li>
+                            <li>Visits</li>
+                            <li>Prescriptions</li>
+                            <li>Health Statistics</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>Notifications</span>
+                        <ul>
+                            <li>Upcoming Visits</li>
+                            <li>Appointment Alert</li>
+                            <li>Other (New Blog, etc.)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>Appointments</span>
+                        <ul>
+                            <li>List of Booked Appointments</li>
+                            <li>Booking for a New Appointment</li>
+                        </ul>
+                    </li>
+                    <li>Chat</li>
+                    <li>FAQ</li>
+                    <li>Clinic Timings</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">Page 2: Blog Section</span>
+            <div class="sub-section">
+                <ul>
+                    <li>
+                        <span>Blogs</span>
+                        <ul>
+                            <li>Blogs</li>
+                            <li>Q & A (Where users can ask anything publicly)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">Page 3: Upcoming Future Store</span>
+        </li>
+    </ul>
+
+    <h2>Admin's Side</h2>
+    <p>This section will contain the topics of what contents are there in the admin’s side.</p>
+    <ul>
+        <li>
+            <span class="section-title">Page 1: Home</span>
+            <div class="sub-section">
+                <ul>
+                    <li>
+                        <span>Appointments</span>
+                        <ul>
+                            <li>List of Booked Appointments</li>
+                            <li>Booking for a New Appointment</li>
+                        </ul>
+                    </li>
+                    <li>Chat with Users</li>
+                    <li>FAQ (Cannot Modify)</li>
+                    <li>Clinic Timings</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">Page 2: Blog Section</span>
+            <div class="sub-section">
+                <ul>
+                    <li>
+                        <span>Blogs</span>
+                        <ul>
+                            <li>Blogs</li>
+                            <li>Q & A (Where admin can answer user questions)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">Page 3: Upcoming Future Store</span>
+        </li>
+        <li>
+            <span class="section-title">Page 4: Patients Page</span>
+            <div class="sub-section">
+                <ul>
+                    <li>
+                        <span>List of Patients</span>
+                        <ul>
+                            <li>List of Patients with All Details (Medical Reports)</li>
+                            <li>A Button to Create a New User</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <!-- New Section: Why Web App and Not Mobile App -->
+    <h2>Why Web App and Not Mobile App</h2>
+    <p>This section will explain the advantages of using a web app over a mobile app.</p>
+    
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>Web App Advantage</th>
+                <th>Mobile App Advantage</th>
+            </tr>
+            <tr>
+                <td>Development Cost</td>
+                <td>Lower, with a single codebase.</td>
+                <td>Higher, with separate codebases for each platform.</td>
+            </tr>
+            <tr>
+                <td>Development Time</td>
+                <td>Faster, as it works across all platforms.</td>
+                <td>Longer due to platform-specific versions.</td>
+            </tr>
+            <tr>
+                <td >Device Compatibility</td>
+                <td>Works on any browser-enabled device.</td>
+                <td>Requires separate apps for different platforms (Android, iOS).</td>
+            </tr>
+            <tr>
+                <td>Codebase</td>
+                <td>One codebase for all platforms.</td>
+                <td>Multiple codebases (or cross-platform frameworks).</td>
+            </tr>
+            <tr>
+                <td>App Store</td>
+                <td>No app store submission needed.</td>
+                <td>Requires store submissions (Google Play, Apple Store).</td>
+            </tr>
+            <tr>
+                <td>Updates</td>
+                <td>Immediate updates via web.</td>
+                <td>Updates need app store approval and user downloads.</td>
+            </tr>
+            <tr>
+                <td>Installation</td>
+                <td>No installation required, accessed via browser.</td>
+                <td>Must be installed from app stores.</td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>Dependent on internet, generally performs well.</td>
+                <td>Better for complex functions using device hardware.</td>
+            </tr>
+            <tr>
+                <td>User Interface (UI)</td>
+                <td>Responsive, but may not feel fully native.</td>
+                <td>Highly polished native experience.</td>
+            </tr>
+            <tr>
+                <td>Maintenance</td>
+                <td>Easier, with one version to manage.</td>
+                <td>Complex, with separate updates for each platform.</td>
+            </tr>
+            <tr>
+                <td>Accessibility</td>
+                <td>Accessible on any browser.</td>
+                <td>Limited to users who download the app.</td>
+            </tr>
+            <tr>
+                <td>Development Flexibility</td>
+                <td>Easier to scale and modify.</td>
+                <td>Harder to modify post-launch.</td>
+            </tr>
+            <tr>
+                <td>Cost Over Time</td>
+                <td>More affordable for smaller projects.</td>
+                <td>Higher due to app store fees and updates.</td>
+            </tr>
+            <tr>
+                <td>User Reach</td>
+                <td>Broader, accessed through any browser.</td>
+                <td>Restricted to app users who have installed it.</td>
+            </tr>
+            <tr>
+                <td>Monetization</td>
+                <td>Ads, subscriptions, etc., without store commissions.</td>
+                <td>More options but with store commissions (15-30%).</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <h2>Timeline</h2>
+    <p>This section provides an overview of the estimated timeline for the project.</p>
+    <ul>
+        <li>
+            <span class="section-title">1. Estimated Duration:</span>
+            <div class="sub-section">
+                <ul>
+                    <li>Initial Projection: 5 to 7 months</li>
+                    <li>Extended Projection: Minimum of 1 year</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">2. Factors Influencing Timeline:</span>
+            <div class="sub-section">
+                <ul>
+                    <li>Current Access to Resources:</li>
+                    <ul>
+                        <li>Limited to one computer at home, primarily used by my father for work.</li>
+                        <li>Access is restricted to approximately 1.5 hours each morning during vacation.</li>
+                        <li>On weekdays, due to college commitments, my access is mainly on weekends.</li>
+                    </ul>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">3. Potential for Expedited Development:</span>
+            <div class="sub-section">
+                <ul>
+                    <li>If I gain access to a personal device (e.g., laptop) for more flexible working hours, the project timeline could be reduced to approximately 3 to 5 months.</li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <span class="section-title">4. Notes:</span>
+            <div class="sub-section">
+                <ul>
+                    <li>The timeline may vary depending on the complexity of the app and other unforeseen factors.</li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Cost Overview</h2>
+    <p>This section provides an outline of the general costs and expenses involved in the development and management of a mobile or web application. The actual cost can vary depending on the complexity of the app and the resources required.</p>
+
+    <h3>Typical Mobile Application Cost:</h3>
+    <p class="price">₹20,000 - ₹150,000</p>
+
+    <h3>Key Expenses to Consider:</h3>
+    <ul>
+        <li><strong>Hosting</strong>: ₹300 to ₹10,000/month</li>
+        <li><strong>Domain Name</strong>: ₹500 to ₹2,000/year</li>
+        <li><strong>SSL Certificate</strong>: ₹500 to ₹5,000/year</li>
+        <li><strong>Database Costs</strong>: ₹0 to ₹50,000/month</li>
+        <li><strong>Development Tools</strong>: ₹1,000 to ₹10,000</li>
+        <li><strong>API Costs</strong>: ₹0 to ₹50,000/month</li>
+        <li><strong>Design/UI/UX</strong>: ₹500 to ₹10,000</li>
+        <li><strong>Security</strong>: ₹1,000 to ₹5,000/year</li>
+        <li><strong>Testing & QA</strong>: ₹1,000 to ₹10,000/month</li>
+        <li><strong>Marketing & SEO</strong>: ₹2,000 to ₹50,000/month</li>
+        <li><strong>Ongoing Maintenance</strong>: ₹2,000 to ₹10,000/month</li>
+    </ul>
+    <p>This outline reflects the standard costs associated with developing a mobile or web app.</p>
+
+    <h3>Project-Specific Cost Estimate</h3>
+    <p>Here’s a tailored breakdown of the costs that may apply to this particular project:</p>
+    <ul>
+        <li><strong>Domain Name</strong>: ₹300 to ₹5,000/month <span class="note">( *Varies depending on the domain and username selected.* )</span></li>
+        <li><strong>Hosting</strong>: ₹300 to ₹10,000/month <span class="note">( *Depends on the app’s size and performance requirements.* )</span></li>
+        <li><strong>SSL Certificate</strong>: ₹500 to ₹5,000/year <span class="note">( *Most domain providers include this, but extra measures may be needed.* )</span></li>
+        <li><strong>Database Costs</strong>: ₹0 to ₹1,000/month <span class="note">( *Firebase provides 1 GB of free storage. Beyond this, charges apply based on user data.* )</span></li>
+        <li><strong>Development Tools</strong>: ₹0 to ₹10,000 <span class="note">( *Web development tools are often free; however, mobile app development can be more expensive.* )</span></li>
+        <li><strong>Design/UI/UX</strong>: ₹0 to ₹500 <span class="note">( *This includes purchasing assets or using design tools.* )</span></li>
+        <li><strong>Security</strong>: ₹1,000 to ₹5,000/year <span class="note">( *Security measures are essential to protect user data and the app.* )</span></li>
+        <li><strong>Testing & QA</strong>: ₹0 to ₹10,000/month <span class="note">( *Free testing options are available, but professional testers may be required for more complex apps.* )</span></li>
+    </ul>
+
+    <h3>Final Thoughts</h3>
+    <p>The total cost of developing a mobile app tends to be higher compared to a web application. I will do my best to work within your budget and ensure a quality product. However, due to the complexity and time required for certain features, I will need to charge accordingly for the additional work. Let me know if this is acceptable to you. I will try my best to keep the budget under ₹15,000/month. This will be the ideal budget for building an interactive web application like yours. This ₹15,000/month will inculde all the expenses and a little fraction of my hard-work.</p>
+
+<hr color="#ffcc00">
+
+    <footer>
+        <p>© 2024 Doctor Consultation App. | Presentation Web - Page</p>
+    </footer>
+</body>
+</html>
